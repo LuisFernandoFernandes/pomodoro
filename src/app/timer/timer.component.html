@@ -1,0 +1,16 @@
+<div class="pomodoro-timer">
+  <div class="stage-buttons">
+    <button id="stage-button-pomodoro" class="active">Pomodoro</button>
+    <button class="short-break">Short Break</button>
+    <button class="long-break">Long Break</button>
+  </div>
+  <div class="timer-display">
+    <div id="timer-string">25:00</div>
+    <button class="start-button">START</button>
+  </div>
+  <button class="settings-button" (click)="toggleConfigurations()">
+    <i class="fa fa-cog"></i>
+  </button>
+</div>
+
+<app-settings *ngIf="isConfigurationsOpen"></app-settings>

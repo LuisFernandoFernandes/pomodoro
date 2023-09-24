@@ -1,0 +1,19 @@
+<form (submit)="onSaveSettings()">
+  <div class="form-group">
+    <label for="pomodoroDuration">Duração do Pomodoro (minutos):</label>
+    <input type="number" id="pomodoroDuration" [(ngModel)]="tempPomodoroDuration" name="pomodoroDuration" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="shortBreakDuration">Duração da Short Break (minutos):</label>
+    <input type="number" id="shortBreakDuration" [(ngModel)]="tempShortBreakDuration" name="shortBreakDuration" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="longBreakDuration">Duração da Long Break (minutos):</label>
+    <input type="number" id="longBreakDuration" [(ngModel)]="tempLongBreakDuration" name="longBreakDuration" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="autoStart">Início Automático:</label>
+    <input type="checkbox" id="autoStart" [(ngModel)]="tempAutoStart" name="autoStart" class="form-check-input">
+  </div>
+  <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
