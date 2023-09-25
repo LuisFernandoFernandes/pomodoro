@@ -7,8 +7,18 @@ import { Component } from '@angular/core';
 })
 export class TimerComponent {
   isConfigurationsOpen: boolean = false;
+  successMessage: boolean = false;
 
   toggleConfigurations() {
     this.isConfigurationsOpen = !this.isConfigurationsOpen;
+  }
+
+  onConfigSaved() {
+    this.isConfigurationsOpen = false;
+    this.successMessage = true;
+
+    setTimeout(() => {
+      this.successMessage = false;
+    }, 1500);
   }
 }

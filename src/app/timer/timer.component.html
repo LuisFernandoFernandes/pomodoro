@@ -1,11 +1,17 @@
 <div class="pomodoro-timer">
   <div class="settings-button-wrapper mt-4">
-    <button class="settings-button" (click)="toggleConfigurations()"  [class.red-icon]="isConfigurationsOpen">
-      <i class="fa fa-cog"></i>
-    </button>
+    <ng-container *ngIf="successMessage; else configButtonTemplate">
+      <div class="alert alert-success">Configurações salvas com sucesso!</div>
+    </ng-container>
+    <ng-template #configButtonTemplate>
+      <!-- Exibe o botão de configurações somente se successMessage for falso -->
+      <button class="settings-button" (click)="toggleConfigurations()" [class.red-icon]="isConfigurationsOpen">
+        <i class="fa fa-cog"></i>
+      </button>
+    </ng-template>
   </div>
-  <div class="settings-content" *ngIf="isConfigurationsOpen">
-    <app-settings *ngIf="isConfigurationsOpen"></app-settings>
+  <div class="settings-content" [hidden]="!isConfigurationsOpen">
+    <app-settings (configSaved)="onConfigSaved()"></app-settings>
   </div>
   <div class="stage-buttons mt-4">
     <button id="stage-button-pomodoro" class="active">Pomodoro</button>

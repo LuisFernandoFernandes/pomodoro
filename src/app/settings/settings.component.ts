@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-settings',
@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./settings.component.css']
 })
 export class SettingsComponent {
+
+  @Output() configSaved = new EventEmitter<void>();
+
   pomodoroDuration: number = 25;
   shortBreakDuration: number = 5;
   longBreakDuration: number = 15;
@@ -24,5 +27,6 @@ export class SettingsComponent {
     this.autoStart = this.tempAutoStart;
 
     console.log('Configurações salvas:', this.pomodoroDuration, this.shortBreakDuration, this.longBreakDuration, this.autoStart);
+    this.configSaved.emit();
   }
 }
