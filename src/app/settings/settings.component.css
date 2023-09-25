@@ -1,0 +1,13 @@
+/* Defina as cores personalizadas para o botão */
+.btn-white-red {
+  background-color: rgb(186, 73, 73);
+  color: white;
+  border: 1px solid white;
+}
+
+/* Estilo para quando o botão estiver sendo pressionado (hover) */
+.btn-white-red:hover {
+  background-color: white;
+  color: rgb(186, 73, 73);
+  border: 1px solid rgb(186, 73, 73);
+}

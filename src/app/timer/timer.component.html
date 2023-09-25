@@ -1,16 +1,19 @@
 <div class="pomodoro-timer">
-  <div class="stage-buttons">
+  <div class="settings-button-wrapper mt-4">
+    <button class="settings-button" (click)="toggleConfigurations()"  [class.red-icon]="isConfigurationsOpen">
+      <i class="fa fa-cog"></i>
+    </button>
+  </div>
+  <div class="settings-content" *ngIf="isConfigurationsOpen">
+    <app-settings *ngIf="isConfigurationsOpen"></app-settings>
+  </div>
+  <div class="stage-buttons mt-4">
     <button id="stage-button-pomodoro" class="active">Pomodoro</button>
     <button class="short-break">Short Break</button>
     <button class="long-break">Long Break</button>
   </div>
-  <div class="timer-display">
+  <div class="timer-display mt-4">
     <div id="timer-string">25:00</div>
-    <button class="start-button">START</button>
+    <button class="start-button mt-4">START</button>
   </div>
-  <button class="settings-button" (click)="toggleConfigurations()">
-    <i class="fa fa-cog"></i>
-  </button>
 </div>
-
-<app-settings *ngIf="isConfigurationsOpen"></app-settings>

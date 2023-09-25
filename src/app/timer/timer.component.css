@@ -36,34 +36,40 @@ button.active {
 }
 
 .start-button {
-  background-color: rgb(186, 73, 73);
-  color: white;
+  background-color: white;
+  color:  rgb(186, 73, 73);
+  border: 1px solid rgb(186, 73, 73);
   font-size: 16px;
   padding: 10px 20px;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.next-button {
-  margin-top: 10px;
+/* Estilo para quando o botão estiver sendo pressionado (hover) */
+.start-button:hover {
+  background-color: rgb(186, 73, 73);
+  color: white;
+  border: 1px solid rgb(186, 73, 73);
 }
 
-.next-button button {
+
+.settings-button-wrapper {
+  margin-bottom: 10px; /* Ajuste o espaçamento entre o botão e outros elementos */
+}
+
+.settings-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
 }
 
-.next-button img {
-  width: 24px;
+.settings-content {
+  background-color: rgb(186, 73, 73);
+  color: white; /* Define a cor das fontes como branco */
+  padding: 10px; /* Adiciona um espaçamento interno para o conteúdo */
+  border-radius: 10px;
 }
 
-.settings-button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
+.red-icon i.fa-cog {
+  color: rgb(186, 73, 73);
 }
