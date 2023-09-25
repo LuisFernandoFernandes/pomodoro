@@ -14,12 +14,14 @@
     <app-settings (configSaved)="onConfigSaved()"></app-settings>
   </div>
   <div class="stage-buttons mt-4">
-    <button id="stage-button-pomodoro" class="active">Pomodoro</button>
-    <button class="short-break">Short Break</button>
-    <button class="long-break">Long Break</button>
+    <button [class.active]="currentStage === 'Pomodoro'" (click)="switchStage('Pomodoro', 1500, 0)">Pomodoro</button>
+    <button [class.active]="currentStage === 'Short Break'" (click)="switchStage('Short Break', 300, 1)">Short Break</button>
+    <button [class.active]="currentStage === 'Long Break'" (click)="switchStage('Long Break', 900, 0)">Long Break</button>
   </div>
+
   <div class="timer-display mt-4">
-    <div id="timer-string">25:00</div>
-    <button class="start-button mt-4">START</button>
+    <div id="timer-string">{{ formatTime(timer) }}</div>
+    <button *ngIf="!timerRunning" class="start-button mt-4" (click)="startTimer()">START</button>
+    <button *ngIf="timerRunning" class="start-button mt-4" (click)="pauseTimer()">PAUSE</button>
   </div>
 </div>
