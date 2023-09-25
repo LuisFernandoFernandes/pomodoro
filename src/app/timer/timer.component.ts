@@ -29,6 +29,7 @@ export class TimerComponent {
   }
 
   startTimer() {
+    //quando clica rápido demais da problema, verificar!
     this.timerRunning = true;
     const intervalId = setInterval(() => {
       if(!this.timerRunning){
