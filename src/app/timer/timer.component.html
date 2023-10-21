@@ -14,9 +14,9 @@
     <app-settings (configSaved)="onConfigSaved($event)"></app-settings>
   </div>
   <div class="stage-buttons mt-4">
-    <button [class.active]="currentStage === 'Pomodoro'" (click)="switchStage('Pomodoro', 1500, 0)">Pomodoro</button>
-    <button [class.active]="currentStage === 'Short Break'" (click)="switchStage('Short Break', 300, 1)">Short Break</button>
-    <button [class.active]="currentStage === 'Long Break'" (click)="switchStage('Long Break', 900, 0)">Long Break</button>
+    <button [class.active]="currentStage === 'Pomodoro'" (click)="switchStage('Pomodoro', pomodoroSettings.pomodoroDuration, 0)">Pomodoro</button>
+    <button [class.active]="currentStage === 'Short Break'" (click)="switchStage('Short Break', pomodoroSettings.shortBreakDuration, 1)">Short Break</button>
+    <button [class.active]="currentStage === 'Long Break'" (click)="switchStage('Long Break', pomodoroSettings.longBreakDuration, 0)">Long Break</button>
   </div>
 
   <div class="timer-display mt-4">

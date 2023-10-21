@@ -8,7 +8,7 @@ import { TimerSettings } from '../settings/settings.interface';
 })
 export class TimerComponent {
 
-  pomodoroSettings: TimerSettings = {} as TimerSettings;
+  pomodoroSettings: TimerSettings = {pomodoroDuration: 1500, shortBreakDuration: 300, longBreakDuration: 900, autoStart: false} as TimerSettings;
   shortBreakNumber: number = 0;
   currentStage: string = 'Pomodoro'; // Pode ser 'Pomodoro', 'Short Break', ou 'Long Break'
   timer: number = 1500; // Tempo em segundos (25 minutos para Pomodoro)
@@ -83,9 +83,6 @@ export class TimerComponent {
   }
 
   switchToNextStage() {
-    //precisa validar se é inicio automatico.
-    //ou vai criar uma mensagem para o usuário clicar e ir para o proximo stage.
-    //o timer deve vir do que foi setado no settings
     let newStage = 'Pomodoro';
     let newTimer = this.pomodoroSettings.pomodoroDuration;
     if(this.currentStage == 'Pomodoro'){
