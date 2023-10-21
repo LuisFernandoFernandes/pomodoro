@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { TimerSettings } from './settings.interface';
 
 @Component({
   selector: 'app-settings',
@@ -7,12 +8,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class SettingsComponent {
 
-  @Output() configSaved = new EventEmitter<void>();
-
-  pomodoroDuration: number = 25;
-  shortBreakDuration: number = 5;
-  longBreakDuration: number = 15;
-  autoStart: boolean = false;
+  @Output() configSaved = new EventEmitter<TimerSettings>();
 
   tempPomodoroDuration: number = 25;
   tempShortBreakDuration: number = 5;
@@ -20,13 +16,13 @@ export class SettingsComponent {
   tempAutoStart: boolean = false;
 
   onSaveSettings() {
-    // Após clicar em "Salvar", atualize as configurações permanentes
-    this.pomodoroDuration = this.tempPomodoroDuration;
-    this.shortBreakDuration = this.tempShortBreakDuration;
-    this.longBreakDuration = this.tempLongBreakDuration;
-    this.autoStart = this.tempAutoStart;
+    const newSettings: TimerSettings = {
+      pomodoroDuration: this.tempPomodoroDuration * 60,
+      shortBreakDuration: this.tempShortBreakDuration * 60,
+      longBreakDuration: this.tempLongBreakDuration * 60,
+      autoStart: this.tempAutoStart,
+    };
 
-    console.log('Configurações salvas:', this.pomodoroDuration, this.shortBreakDuration, this.longBreakDuration, this.autoStart);
-    this.configSaved.emit();
+    this.configSaved.emit(newSettings);
   }
 }

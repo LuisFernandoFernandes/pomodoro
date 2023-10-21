@@ -11,7 +11,7 @@
     </ng-template>
   </div>
   <div class="settings-content" [hidden]="!isConfigurationsOpen">
-    <app-settings (configSaved)="onConfigSaved()"></app-settings>
+    <app-settings (configSaved)="onConfigSaved($event)"></app-settings>
   </div>
   <div class="stage-buttons mt-4">
     <button [class.active]="currentStage === 'Pomodoro'" (click)="switchStage('Pomodoro', 1500, 0)">Pomodoro</button>
