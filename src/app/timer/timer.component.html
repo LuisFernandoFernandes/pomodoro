@@ -25,3 +25,9 @@
     <button *ngIf="timerRunning" class="start-button mt-4" (click)="pauseTimer()">PAUSE</button>
   </div>
 </div>
+
+<audio #audio [hidden]="true">
+  <source src="assets/sounds/bell.mp3" type="audio/mp3">
+  Seu navegador não suporta a reprodução de áudio.
+</audio>
+
