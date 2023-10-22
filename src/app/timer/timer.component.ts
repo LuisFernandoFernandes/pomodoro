@@ -10,8 +10,8 @@ export class TimerComponent {
 
   pomodoroSettings: TimerSettings = {pomodoroDuration: 1500, shortBreakDuration: 300, longBreakDuration: 900, autoStart: false} as TimerSettings;
   shortBreakNumber: number = 0;
-  currentStage: string = 'Pomodoro'; // Pode ser 'Pomodoro', 'Short Break', ou 'Long Break'
-  timer: number = 1500; // Tempo em segundos (25 minutos para Pomodoro)
+  currentStage: string = 'Pomodoro';
+  timer: number = 1500;
   timerRunning: boolean = false;
 
   isConfigurationsOpen: boolean = false;
@@ -41,10 +41,9 @@ export class TimerComponent {
     this.changeDetectorRef.detectChanges();
 
     this.timer = this.pomodoroSettings.pomodoroDuration;
-    this.currentStage = 'Pomodoro'; // Volte para o primeiro estágio
+    this.currentStage = 'Pomodoro';
     if(!this.pomodoroSettings.autoStart) return;
     setTimeout(() => {
-      // Inicie o timer
       this.startTimer();
     }, 1000);
   }
@@ -62,7 +61,7 @@ export class TimerComponent {
       } else {
         this.timerRunning = false;
         clearInterval(intervalId);
-        this.switchToNextStage(); // Chame a função para alternar para a próxima fase
+        this.switchToNextStage();
       }
     }, 1000);
   }
@@ -108,5 +107,6 @@ export class TimerComponent {
     this.timer = newTimer;
     this.shortBreakNumber = newShortBreakNumber;
     this.timerRunning = next;
+    if(this.timerRunning) this.startTimer()
   }
 }
