@@ -16,6 +16,8 @@ export class SettingsComponent {
   tempAutoStart: boolean = false;
 
   onSaveSettings() {
+    if(this.tempPomodoroDuration < 1 || this.tempShortBreakDuration < 1 || this.tempLongBreakDuration< 1) return;
+
     const newSettings: TimerSettings = {
       pomodoroDuration: this.tempPomodoroDuration * 60,
       shortBreakDuration: this.tempShortBreakDuration * 60,
