@@ -7,7 +7,6 @@ import { TimerSettings } from '../settings/settings.interface';
   styleUrls: ['./timer.component.css']
 })
 export class TimerComponent {
-
   pomodoroSettings: TimerSettings = {pomodoroDuration: 1500, shortBreakDuration: 300, longBreakDuration: 900, autoStart: false} as TimerSettings;
   shortBreakNumber: number = 0;
   currentStage: string = 'Pomodoro';
@@ -16,6 +15,8 @@ export class TimerComponent {
 
   isConfigurationsOpen: boolean = false;
   successMessage: boolean = false;
+
+  timerInterval: any;
 
   constructor(private changeDetectorRef: ChangeDetectorRef){}
 
@@ -48,29 +49,24 @@ export class TimerComponent {
     }, 1000);
   }
 
-
   startTimer() {
     this.timerRunning = true;
-    const intervalId = setInterval(() => {
-      if(!this.timerRunning){
-        clearInterval(intervalId);
-        return;
-      }
-      if (this.timer > 0) {
-        this.timer--;
-      } else {
-        this.timerRunning = false;
-        clearInterval(intervalId);
-        this.switchToNextStage();
-      }
-    }, 1000);
+    if (this.timer > 0) {
+      this.timerInterval = setInterval(() => {
+        if (this.timer > 0) {
+          this.timer--;
+        } else {
+          this.timerRunning = false;
+          clearInterval(this.timerInterval);
+          this.switchToNextStage();
+        }
+      }, 1000);
+    }
   }
 
-
-
   pauseTimer() {
-    //isso não funciona
     this.timerRunning = false;
+    clearInterval(this.timerInterval);
   }
 
   formatTime(seconds: number): string {
@@ -100,7 +96,6 @@ export class TimerComponent {
 
     this.switchStage(newStage, newTimer, this.shortBreakNumber, this.pomodoroSettings.autoStart);
   }
-
 
   switchStage(newStage: string, newTimer: number, newShortBreakNumber: number, next: boolean = false) {
     this.currentStage = newStage;
