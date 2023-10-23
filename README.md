@@ -19,7 +19,7 @@ npm install -g @angular/cli
 To install the project, clone the repository to your local machine and navigate to the project directory.
 
 ```
-git clone <repository-url>
+git clone https://github.com/LuisFernandoFernandes/pomodoro.git 
 cd pomodoro
 ```
 
