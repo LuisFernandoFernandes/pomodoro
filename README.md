@@ -70,4 +70,4 @@ By using the Pomodoro Timer, you can enhance your time management, stay producti
 
 ## Contact
 
-If you have any questions or would like to get in touch, you can reach me at [l.fernando@protonmail.com](mailto:l.fernando@protonmail.com or [LuisFernandoFernandes](https://github.com/LuisFernandoFernandes).
+If you have any questions or would like to get in touch, you can reach me at [l.fernando@protonmail.com](mailto:l.fernando@protonmail.com) or [LuisFernandoFernandes](https://github.com/LuisFernandoFernandes).
