@@ -67,3 +67,7 @@ The Pomodoro Timer provides a user-friendly interface to manage your work sessio
 - **Visual and Audio Feedback**: The timer provides visual feedback by switching between work and break stages. It also plays an audio notification at the end of each cycle.
 
 By using the Pomodoro Timer, you can enhance your time management, stay productive, and maintain a healthy work-life balance. Enjoy focused work sessions and regular breaks to recharge your energy!
+
+## Contact
+
+If you have any questions or would like to get in touch, you can reach me at [l.fernando@protonmail.com](mailto:l.fernando@protonmail.com or [LuisFernandoFernandes](https://github.com/LuisFernandoFernandes).
